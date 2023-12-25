@@ -43,6 +43,7 @@ fun Navigation(navController: NavHostController, addPdf: () -> Unit) {
     NavHost(navController, startDestination = NavigationItem.Home.route) {
         composable(NavigationItem.Home.route) {
             HomeScreen(addPDF = addPdf)
+            colorResource(id = R.color.text_color)
         }
         composable("${NavigationItem.Merge.route}?pdfList={pdfList}") {
             val uriListString = it.arguments?.getString("pdfList")
@@ -101,19 +102,20 @@ fun BottomNavigationBar(navController: NavController,onNavItemClicked: (Navigati
                                     modifier = Modifier
                                         .clip(CircleShape)
                                         .background(
-                                            color = color
+                                            color = Color(0xFF8EA7E9)
                                         )
                                         .size(60.dp)
                                         .padding(all = 18.dp)
                                         .align(Alignment.Top)
-                                        .padding(bottom = 4.dp)
+                                        .padding(bottom = 4.dp),
+                                    tint = Color(0xFFE3F4F4)
                                 )
 
                             }
                         } else {
                             Icon(
                                 painterResource(id = item.icon),
-                                contentDescription = null
+                                contentDescription = null,
                             )
                         }
                     },
@@ -121,12 +123,12 @@ fun BottomNavigationBar(navController: NavController,onNavItemClicked: (Navigati
                     selectedContentColor = if (item == NavigationItem.Merge) {
                         colorResource(id = R.color.white)
                     } else {
-                        colorResource(id = R.color.pdf_document_text_color)
+                        colorResource(id = R.color.text_color)
                     },
                     unselectedContentColor = if (item == NavigationItem.Merge) {
                         colorResource(id = R.color.white)
                     } else {
-                        colorResource(id = R.color.unselected_color)
+                        colorResource(id = R.color.background_color_tint)
                     },
                     alwaysShowLabel = true,
                     selected = currentRoute == item.route,

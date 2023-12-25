@@ -1,5 +1,6 @@
 package co.torpido.pdfcombine.mergepdf.utils
 
+import AdManager
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.Canvas

@@ -24,10 +24,13 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Scaffold
 import androidx.compose.material.Text
+import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
@@ -38,6 +41,7 @@ import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -91,7 +95,7 @@ fun HistoryScreenList(
     val annotatedTopBarText = buildAnnotatedString {
         withStyle(
             style = SpanStyle(
-                color = Color(0xFFA42516),
+                color = Color(0xFF8EA7E9),
                 fontSize = 58.24.sp,
                 fontFamily = FontFamily(Font(R.font.abril)),
                 fontWeight = FontWeight(400)
@@ -101,7 +105,7 @@ fun HistoryScreenList(
         }
         withStyle(
             style = SpanStyle(
-                color = Color(0xFFA42516),
+                color = Color(0xFF8EA7E9),
                 fontSize = 24.sp,
                 fontWeight = FontWeight(300)
             )
@@ -112,7 +116,7 @@ fun HistoryScreenList(
     LazyColumn(
         modifier = modifier
             .fillMaxSize()
-            .background(color = Color(0xFFFFF4F2))
+            .background(color = Color(0xFFE3F4F4))
     ) {
         item {
             Row(
@@ -142,7 +146,8 @@ fun HistoryScreenList(
                         modifier = modifier
                             .padding(top = 32.dp, end = 16.dp)
                             .clickable(onClick = addPDF)
-                            .wrapContentSize()
+                            .wrapContentSize(),
+                        colorFilter = ColorFilter.tint(Color(0xFF8EA7E9))
                     )
                 }
             }
@@ -155,7 +160,7 @@ fun HistoryScreenList(
                     fontSize = 18.sp,
                     fontFamily = FontFamily(Font(R.font.inter)),
                     fontWeight = FontWeight(600),
-                    color = Color(0xFFD18C84),
+                    color = Color(0xFF8EA7E9),
                 ),
                 modifier = modifier
                     .fillMaxWidth()
@@ -198,12 +203,13 @@ fun HistoryScreenItem(
                 modifier = modifier
                     .border(
                         width = 1.dp,
-                        color = Color(0xFFA40D0D),
+                        color = Color(0xFF8EA7E9),
                         shape = RoundedCornerShape(size = 10.dp)
                     )
                     .width(50.dp)
                     .height(50.dp),
-                contentScale = ContentScale.None
+                contentScale = ContentScale.None,
+                colorFilter = ColorFilter.tint(Color(0xFF8EA7E9))
             )
             Column(
                 modifier = modifier
@@ -216,7 +222,7 @@ fun HistoryScreenItem(
                         fontSize = 14.sp,
                         fontFamily = FontFamily(Font(R.font.inter)),
                         fontWeight = FontWeight(700),
-                        color = Color(0xFFA40D0D),
+                        color = Color(0xFF8EA7E9),
                     ),
                     modifier = modifier.height(17.dp)
                 )
@@ -227,7 +233,7 @@ fun HistoryScreenItem(
                         fontSize = 12.sp,
                         fontFamily = FontFamily(Font(R.font.inter)),
                         fontWeight = FontWeight(400),
-                        color = Color(0xFFA40D0D),
+                        color = Color(0xFF8EA7E9),
                     ),
                     modifier = modifier.height(17.dp)
                 )

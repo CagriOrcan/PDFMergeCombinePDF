@@ -7,6 +7,8 @@
     <color name="add_button_color">#A40D0D</color>
     <color name="background_color">#FFF4F2</color>
     <color name="unselected_icon_color">#FFF4F2</color>
+    <color name="text_color">#8EA7E9</color>
+    <color name="background_color_tint">#E3F4F4</color>
 
     <color name="unselected_color">#80A42516</color>
 

@@ -21,6 +21,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -34,7 +35,11 @@ import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.ui.viewinterop.AndroidView
 import co.torpido.pdfcombine.mergepdf.R
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.AdSize
+import com.google.android.gms.ads.AdView
 
 
 @Composable
@@ -45,7 +50,7 @@ fun HomeScreen(
     val annotatedString = buildAnnotatedString {
         withStyle(
             style = SpanStyle(
-                color = Color(0xFFA42516),
+                color = Color(0xFF8EA7E9),
                 fontSize = 58.24.sp,
                 fontFamily = FontFamily(Font(R.font.abril)),
                 fontWeight = FontWeight(400)
@@ -55,7 +60,7 @@ fun HomeScreen(
         }
         withStyle(
             style = SpanStyle(
-                color = Color(0xFFA42516),
+                color = Color(0xFF8EA7E9),
                 fontSize = 24.sp,
                 fontWeight = FontWeight(300)
             )
@@ -67,7 +72,7 @@ fun HomeScreen(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = modifier
             .fillMaxSize()
-            .background(color = Color(0xFFFFF4F2))
+            .background(color = Color(0xFFE3F4F4))
     ) {
         Row(
             modifier = Modifier
@@ -82,7 +87,7 @@ fun HomeScreen(
                 text = annotatedString,
                 modifier = modifier
                     .weight(1f)
-                    .padding(start = 16.dp, top = 0.dp)
+                    .padding(start = 16.dp, top = 0.dp),
             )
             Image(
                 painter = painterResource(id = R.drawable.ic_add_medium),
@@ -92,7 +97,8 @@ fun HomeScreen(
                 contentScale = ContentScale.None,
                 modifier = modifier
                     .padding(top = 32.dp, end = 16.dp)
-                    .clickable(onClick = addPDF)
+                    .clickable(onClick = addPDF),
+                colorFilter = ColorFilter.tint(Color(0xFF8EA7E9))
 
             )
 
@@ -108,7 +114,8 @@ fun HomeScreen(
             modifier = modifier
                 .width(109.dp)
                 .height(109.dp),
-            contentScale = ContentScale.None
+            contentScale = ContentScale.None,
+            colorFilter = ColorFilter.tint(Color(0xFF8EA7E9))
         )
         Text(
             text = "You don’t have any PDF Documents",
@@ -116,7 +123,7 @@ fun HomeScreen(
                 fontSize = 18.sp,
                 fontFamily = FontFamily(Font(R.font.inter)),
                 fontWeight = FontWeight(700),
-                color = Color(0xFFA42516),
+                color = Color(0xFF8EA7E9),
             ),
             modifier = modifier.padding(top = 1.dp)
         )
@@ -128,7 +135,8 @@ fun HomeScreen(
                 .width(134.dp)
                 .height(9.dp)
                 .align(Alignment.End),
-            contentScale = ContentScale.None
+            contentScale = ContentScale.None,
+            colorFilter = ColorFilter.tint(Color(0xFF8EA7E9))
         )
         Image(
             painter = painterResource(id = R.drawable.arrow),
@@ -137,14 +145,15 @@ fun HomeScreen(
                 .padding(top = 5.dp, end = 50.dp)
                 .width(112.32.dp)
                 .align(Alignment.End),
-            contentScale = ContentScale.None
+            contentScale = ContentScale.None,
+            colorFilter = ColorFilter.tint(Color(0xFF8EA7E9))
         )
         Box(
             modifier = modifier
                 .width(65.dp)
                 .height(65.dp)
                 .border(width = 5.dp, color = Color(0xE5FFFFFF), shape = CircleShape)
-                .background(color = Color(0xFFA40D0D), shape = CircleShape),
+                .background(color = Color(0xFF8EA7E9), shape = CircleShape),
             contentAlignment = Alignment.Center
         ) {
             Image(

@@ -28,6 +28,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
@@ -61,7 +62,7 @@ fun MergeScreenList(modifier: Modifier = Modifier, addPDF: () -> Unit, pdfList: 
     val annotatedTopBarText = buildAnnotatedString {
         withStyle(
             style = SpanStyle(
-                color = Color(0xFFA42516),
+                color = Color(0xFF8EA7E9),
                 fontSize = 58.24.sp,
                 fontFamily = FontFamily(Font(R.font.abril)),
                 fontWeight = FontWeight(400)
@@ -71,7 +72,7 @@ fun MergeScreenList(modifier: Modifier = Modifier, addPDF: () -> Unit, pdfList: 
         }
         withStyle(
             style = SpanStyle(
-                color = Color(0xFFA42516),
+                color = Color(0xFF8EA7E9),
                 fontSize = 24.sp,
                 fontWeight = FontWeight(300)
             )
@@ -82,7 +83,7 @@ fun MergeScreenList(modifier: Modifier = Modifier, addPDF: () -> Unit, pdfList: 
     val mergeFileNumber = buildAnnotatedString {
         withStyle(
             style = SpanStyle(
-                color = Color(0xFFA42516),
+                color = Color(0xFF8EA7E9),
                 fontSize = 18.sp,
 
             )
@@ -92,7 +93,7 @@ fun MergeScreenList(modifier: Modifier = Modifier, addPDF: () -> Unit, pdfList: 
 
         withStyle(
             style = SpanStyle(
-                color = Color.Black,
+                color = Color(0xFF8EA7E9),
                 fontSize = 18.sp
             )
         ) {
@@ -103,7 +104,7 @@ fun MergeScreenList(modifier: Modifier = Modifier, addPDF: () -> Unit, pdfList: 
     LazyColumn(
         modifier = modifier
             .fillMaxSize()
-            .background(color = Color(0xFFFFF4F2))
+            .background(color = Color(0xFFE3F4F4))
     ) {
         item {
             Row(
@@ -133,7 +134,8 @@ fun MergeScreenList(modifier: Modifier = Modifier, addPDF: () -> Unit, pdfList: 
                         modifier = modifier
                             .padding(top = 86.dp, end = 16.dp)
                             .clickable(onClick = addPDF)
-                            .wrapContentSize()
+                            .wrapContentSize(),
+                        colorFilter = ColorFilter.tint(Color(0xFF8EA7E9))
                     )
                 }
             }
@@ -202,12 +204,13 @@ fun MergeScreenItem(
                 modifier = modifier
                     .border(
                         width = 1.dp,
-                        color = Color(0xFFA40D0D),
+                        color = Color(0xFF8EA7E9),
                         shape = RoundedCornerShape(size = 10.dp)
                     )
                     .width(50.dp)
                     .height(50.dp),
-                contentScale = ContentScale.None
+                contentScale = ContentScale.None,
+                colorFilter = ColorFilter.tint(Color(0xFF8EA7E9))
             )
             Column(
                 modifier = modifier
@@ -220,7 +223,7 @@ fun MergeScreenItem(
                         fontSize = 14.sp,
                         fontFamily = FontFamily(Font(R.font.inter)),
                         fontWeight = FontWeight(700),
-                        color = Color(0xFFA40D0D),
+                        color = Color(0xFF8EA7E9),
                     ),
                     modifier = modifier.height(17.dp)
                 )
@@ -231,7 +234,7 @@ fun MergeScreenItem(
                         fontSize = 12.sp,
                         fontFamily = FontFamily(Font(R.font.inter)),
                         fontWeight = FontWeight(400),
-                        color = Color(0xFFA40D0D),
+                        color = Color(0xFF8EA7E9),
                     ),
                     modifier = modifier.height(17.dp)
                 )

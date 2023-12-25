@@ -1,5 +1,6 @@
 package co.torpido.pdfcombine.mergepdf
 
+import AdManager
 import android.net.Uri
 import android.os.Bundle
 import android.widget.Toast
@@ -30,9 +31,11 @@ class MainActivity : PdfPickerActivity(R.layout.activity_main) {
 
     private val binding: ActivityMainBinding by dataBinding()
     private lateinit var navController: NavHostController
+    private lateinit var adManager: AdManager
     private var uriList: MutableList<Uri> = mutableListOf()
     private var newSize by mutableStateOf(0)
     private var isLoading by mutableStateOf(false)
+
 
     @Inject
     lateinit var pdfMergeTool: PdfMergeTool
@@ -60,6 +63,7 @@ class MainActivity : PdfPickerActivity(R.layout.activity_main) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initListener()
+        adManager = AdManager(this)
 
         window.statusBarColor = ContextCompat.getColor(this, R.color.white)
         setContent {
@@ -95,6 +99,7 @@ class MainActivity : PdfPickerActivity(R.layout.activity_main) {
                     "Download dizinine kayıt edilerek birleştirme tamamlandı",
                     Toast.LENGTH_SHORT
                 ).show()
+                adManager.showAd()
                 isLoading = false
                 navController.navigate(NavigationItem.History.route)
             } else {
