@@ -21,6 +21,7 @@ import co.torpido.pdfcombine.mergepdf.R
 import co.torpido.pdfcombine.mergepdf.presentation.navigation.BottomNavigationBar
 import co.torpido.pdfcombine.mergepdf.presentation.navigation.Navigation
 import co.torpido.pdfcombine.mergepdf.presentation.navigation.NavigationItem
+import co.torpido.pdfcombine.mergepdf.presentation.ui.home.AdvertView
 
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable

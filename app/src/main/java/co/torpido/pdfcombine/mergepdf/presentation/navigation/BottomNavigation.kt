@@ -1,5 +1,6 @@
 package co.torpido.pdfcombine.mergepdf.presentation.navigation
 
+import AdManager
 import android.net.Uri
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Row
@@ -27,6 +28,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import co.torpido.pdfcombine.mergepdf.R
 import co.torpido.pdfcombine.mergepdf.presentation.ui.history.HistoryScreen
+import co.torpido.pdfcombine.mergepdf.presentation.ui.home.AdvertView
 import co.torpido.pdfcombine.mergepdf.presentation.ui.home.HomeScreen
 import co.torpido.pdfcombine.mergepdf.presentation.ui.merge.MergeScreen
 
@@ -74,7 +76,6 @@ fun BottomNavigationBar(navController: NavController,onNavItemClicked: (Navigati
         NavigationItem.Merge,
         NavigationItem.History
     )
-
 
     Surface(
         modifier = modifier
@@ -153,4 +154,5 @@ fun BottomNavigationBar(navController: NavController,onNavItemClicked: (Navigati
     }
 
 }
+
 

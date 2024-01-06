@@ -1,5 +1,7 @@
 package co.torpido.pdfcombine.mergepdf.presentation.ui.home
 
+import AdManager
+import android.content.Context
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -8,6 +10,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -23,6 +26,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalInspectionMode
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.SpanStyle
@@ -31,6 +36,7 @@ import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -45,7 +51,7 @@ import com.google.android.gms.ads.AdView
 @Composable
 fun HomeScreen(
     modifier: Modifier = Modifier,
-    addPDF: () -> Unit
+    addPDF: () -> Unit,
 ) {
     val annotatedString = buildAnnotatedString {
         withStyle(
@@ -101,8 +107,8 @@ fun HomeScreen(
                 colorFilter = ColorFilter.tint(Color(0xFF8EA7E9))
 
             )
-
         }
+       // AdvertView()
         Spacer(modifier = Modifier.height(100.dp))
         Image(
             painter = painterResource(
@@ -117,6 +123,7 @@ fun HomeScreen(
             contentScale = ContentScale.None,
             colorFilter = ColorFilter.tint(Color(0xFF8EA7E9))
         )
+
         Text(
             text = "You don’t have any PDF Documents",
             style = TextStyle(
@@ -164,6 +171,9 @@ fun HomeScreen(
                 contentScale = ContentScale.None
             )
         }
+        //AdvertView()
+        bannersAds()
+
     }
 }
 
@@ -172,5 +182,55 @@ fun HomeScreen(
 fun HomeScreenPreview() {
     MaterialTheme {
         HomeScreen(addPDF = {})
+    }
+}
+
+@Composable
+fun AdvertView(modifier: Modifier = Modifier) {
+    val isInEditMode = LocalInspectionMode.current
+    if (isInEditMode) {
+        Text(
+            modifier = modifier
+                .fillMaxWidth()
+                .background(Color.Red)
+                .padding(horizontal = 2.dp, vertical = 6.dp),
+            textAlign = TextAlign.Center,
+            color = Color.White,
+            text = "Advert Here",
+        )
+    } else {
+        AndroidView(
+            modifier = modifier.fillMaxWidth(),
+            factory = { context ->
+                AdView(context).apply {
+                    setAdSize(AdSize.BANNER)
+                    adUnitId = "ca-app-pub-3940256099942544/6300978111"
+                    loadAd(AdRequest.Builder().build())
+                }
+            }
+        )
+    }
+}
+
+@Composable
+fun bannersAds() {
+    Column(
+        modifier = Modifier
+            .fillMaxHeight()
+            .fillMaxWidth()
+            .background(Color(0xFFE3F4F4))
+    ) {
+        Spacer(modifier = Modifier.height(80.dp))
+        Spacer(modifier = Modifier.height(30.dp))
+        AndroidView(
+            modifier = Modifier.fillMaxWidth(),
+            factory = { context ->
+                AdView(context).apply {
+                    setAdSize(AdSize.BANNER)
+                    adUnitId = "ca-app-pub-3940256099942544/6300978111"
+                    loadAd(AdRequest.Builder().build())
+                }
+            }
+        )
     }
 }
